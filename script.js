@@ -20,6 +20,10 @@ const getWeatherData = (city) => {
       if (data.cod === "404") {
         const errorMessage = 'Invalid city name'
         cityName.innerText = errorMessage
+        weatherType.innerText = '----'
+        temp.innerText = '--'
+        minTemp.innerText = '--'
+        maxTemp.innerText = '--'
       } else{
       const weatherData = {
         name: data.name,
