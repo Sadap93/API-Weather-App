@@ -46,11 +46,8 @@ const convertToCelsius = (fahrenheit) => {
 const showWeatherData = (weatherData) => {
   cityName.innerText = weatherData.name
   weatherType.innerText = weatherData.type
-  const tempCelsius = convertToCelsius(weatherData.temp)
-  const tempMinCelsius = convertToCelsius(weatherData.tempMin)
-  const tempMaxCelsius = convertToCelsius(weatherData.tempMax)
   //refresh dom
-  temp.innerText = tempCelsius
-  minTemp.innerText = tempMinCelsius
-  maxTemp.innerText = tempMaxCelsius
+  temp.innerText = convertToCelsius(weatherData.temp)
+  minTemp.innerText = convertToCelsius(weatherData.tempMin)
+  maxTemp.innerText = convertToCelsius(weatherData.tempMax)
 }
