@@ -36,13 +36,17 @@ const searchCity = () => {
   getWeatherData(city)
 }
 
+//convert Fahrenheit to Celsius
+const convertToCelsius = (fahrenheit) => {
+  return ((fahrenheit - 32) / 1.8).toFixed(2)
+}
+
 const showWeatherData = (weatherData) => {
   cityName.innerText = weatherData.name
   weatherType.innerText = weatherData.type
-  //convert Fahrenheit to Celsius
-  const tempCelsius = (((weatherData.temp)-32)/1.8).toFixed(2)
-  const tempMinCelsius = (((weatherData.tempMin)-32)/1.8).toFixed(2)
-  const tempMaxCelsius = (((weatherData.tempMax)-32)/1.8).toFixed(2)
+  const tempCelsius = convertToCelsius(weatherData.temp)
+  const tempMinCelsius = convertToCelsius(weatherData.tempMin)
+  const tempMaxCelsius = convertToCelsius(weatherData.tempMax)
   //refresh dom
   temp.innerText = tempCelsius
   minTemp.innerText = tempMinCelsius
