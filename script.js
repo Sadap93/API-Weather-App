@@ -17,6 +17,10 @@ const getWeatherData = (city) => {
     .then(response => response.json())
     .then(json => {
       const data = json
+      if (data.cod === "404") {
+        const errorMessage = 'Invalid city name'
+        cityName.innerText = errorMessage
+      } else{
       const weatherData = {
         name: data.name,
         type: data.weather[0].main,
@@ -25,9 +29,7 @@ const getWeatherData = (city) => {
         tempMax: data.main.temp_max,
       }
       showWeatherData(weatherData)
-      if (data.cod === "404") {
-        console.log("Invalid city name")
-      }
+      }  
     })
 }
 
